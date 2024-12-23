@@ -1,30 +1,35 @@
 {
-	"manifest_version": 2,
-	"name": "jable视频下载插件",
-	"version": "0.2",
-	"description": "下载jable.tv",
-	"author": "Halo",
-	"icons":
-	{
-		"16":"./icon_128.png",
-		"48": "./icon_128.png",
-		"128": "./icon_128.png"
-	},
-	"permissions": [
-		"storage"
-	],
-	"content_scripts": 
-	[
-		{
-			"matches": [
-				"https://jable.tv/videos/*/"
-			],
-			"js": ["content-script.js"]
-		}
-	],
-	"options_page": "settings.html",
-	"web_accessible_resources":[
-		"inject.js"
-	],
-	"homepage_url": "https://www.augety.com"
+  "manifest_version": 3,
+  "name": "jable视频下载插件",
+  "version": "0.2",
+  "description": "下载jable.tv",
+  "author": "Halo",
+  "icons": {
+    "16": "./icon_128.png",
+    "48": "./icon_128.png",
+    "128": "./icon_128.png"
+  },
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://jable.tv/videos/*/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jable.tv/videos/*/"
+      ],
+      "js": ["content-script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["https://jable.tv/videos/*/"]
+    }
+  ],
+  "options_page": "settings.html",
+  "homepage_url": "https://www.augety.com"
 }
